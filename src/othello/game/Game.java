@@ -6,35 +6,31 @@ import othello.pawn.Pawn;
 import java.util.Scanner;
 
 public class Game {
+    private Board board;
     private Player player1;
     private Player player2;
     private Player currentPlayer;
-    private Board board;
 
-    public Game(String player1Name, String player2Name) {
-        this.player1 = new Player(player1Name, "black");
-        this.player2 = new Player(player2Name, "white");
-        this.currentPlayer = player1; // Le joueur noir commence
+    public Game() {
         this.board = new Board();
+        this.player1 = new Player("Joueur 1", new Pawn("Noir"));
+        this.player2 = new Player("Joueur 2", new Pawn("Blanc"));
+        this.currentPlayer = player1;
     }
 
-    // Affiche le plateau et le score
-    public void displayGameState() {
-        board.displayBoard();
-    }
-
-    // Passe au joueur suivant
-    public void switchPlayer() {
-        if (currentPlayer == player1) {
-            currentPlayer = player2;
-        } else {
-            currentPlayer = player1;
-        }
-    }
-
-    // Démarre le jeu (simple affichage du plateau pour le moment)
     public void start() {
-        System.out.println("Début de la partie entre " + player1.getName() + " et " + player2.getName() + ".");
-        displayGameState(); // Affiche le plateau de départ
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Bienvenue dans Othello!");
+        System.out.print("Entrez le nom du Joueur 1 : ");
+        player1.setName(scanner.nextLine());
+        System.out.print("Entrez le nom du Joueur 2 : ");
+        player2.setName(scanner.nextLine());
+        displayBoard();
+    }
+
+    private void displayBoard() {
+        board.display();
+        System.out.println("Pions noirs : " + board.getBlackCount());
+        System.out.println("Pions blancs : " + board.getWhiteCount());
     }
 }

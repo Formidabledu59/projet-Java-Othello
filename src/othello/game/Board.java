@@ -1,34 +1,47 @@
 package othello.game;
 
-
 public class Board {
-    private Pawn[][] board;
+    private String[][] board;
 
     public Board() {
-        // Initialise le plateau 8x8 avec des cases vides
-        board = new Pawn[8][8];
+        board = new String[8][8];
         initializeBoard();
     }
 
-    // Initialisation du plateau avec les 4 pions au centre
     private void initializeBoard() {
-        board[3][3] = new Pawn("white");
-        board[3][4] = new Pawn("black");
-        board[4][3] = new Pawn("black");
-        board[4][4] = new Pawn("white");
+        // Initialisation du plateau avec 4 pions
+        board[3][3] = "Blanc";
+        board[3][4] = "Noir";
+        board[4][3] = "Noir";
+        board[4][4] = "Blanc";
     }
 
-    // Affiche le plateau
-    public void displayBoard() {
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                if (board[i][j] == null) {
-                    System.out.print("- ");
-                } else {
-                    System.out.print(board[i][j].getColor().charAt(0) + " ");
-                }
+    public void display() {
+        for (String[] row : board) {
+            for (String cell : row) {
+                System.out.print((cell == null ? "." : cell.charAt(0)) + " ");
             }
             System.out.println();
         }
+    }
+
+    public int getBlackCount() {
+        return countPawns("Noir");
+    }
+
+    public int getWhiteCount() {
+        return countPawns("Blanc");
+    }
+
+    private int countPawns(String color) {
+        int count = 0;
+        for (String[] row : board) {
+            for (String cell : row) {
+                if (color.equals(cell)) {
+                    count++;
+                }
+            }
+        }
+        return count;
     }
 }
