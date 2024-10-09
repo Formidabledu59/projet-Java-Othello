@@ -1,3 +1,6 @@
+package othello.pawn;
+
+
 public class Pawn {
     private String color; // "black" ou "white"
 

@@ -1,3 +1,6 @@
+package othello.game;
+
+
 public class Board {
     private Pawn[][] board;
 

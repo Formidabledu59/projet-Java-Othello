@@ -1,3 +1,6 @@
+package othello.player;
+
+
 public class Player {
     private String name;
     private String color; // "black" ou "white"

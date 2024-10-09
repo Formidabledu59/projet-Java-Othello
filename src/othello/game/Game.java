@@ -1,3 +1,8 @@
+package othello.game;
+
+import othello.player.Player;
+import othello.pawn.Pawn;
+
 import java.util.Scanner;
 
 public class Game {
