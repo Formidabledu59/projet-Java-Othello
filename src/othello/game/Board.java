@@ -1,6 +1,10 @@
 package othello.game;
 
+import java.util.concurrent.locks.Condition;
+import othello.player.Player;
+
 public class Board {
+
     private String[][] board;
 
     public Board() {
@@ -25,6 +29,81 @@ public class Board {
         }
     }
 
+    //check------------------------------------------------------------------------------------------------------------------------------
+    private boolean checkLeftRight(int row, int col, Player player) {
+        // Vérifie si un mouvement horizontal de gauche |vers| droite encadre des pions adverses.
+
+        // if (Condition) {
+        //...    
+        // }
+        return false;
+    }
+
+    private boolean checkRightLeft(int row, int col, Player player) {
+        // Vérifie si un mouvement horizontal de droite |vers| gauche encadre des pions adverses.
+
+        // if (Condition) {
+        //...    
+        // }
+        return false;
+    }
+
+    private boolean checkUpDown(int row, int col, Player player) {
+        // Vérifie si un mouvement vertical de haut |vers| bas encadre des pions adverses.
+
+        // if (Condition) {
+        //...    
+        // }
+        return false;
+    }
+
+    private boolean checkDownUp(int row, int col, Player player) {
+        // Vérifie si un mouvement vertical de bas |vers| haut encadre des pions adverses.
+
+        // if (Condition) {
+        //...    
+        // }
+        return false;
+    }
+
+    private boolean checkDiagonalUpLeftDownRight(int row, int col, Player player) {
+        // Vérifie si un mouvement diagonal de haut à gauche |vers| bas à droite encadre des pions adverses.
+
+        // if (Condition) {
+        //...    
+        // }
+        return false;
+    }
+
+    private boolean checkDiagonalUpRightDownLeft(int row, int col, Player player) {
+        // Vérifie si un mouvement diagonal de haut à droite |vers| bas à gauche encadre des pions adverses.
+
+        // if (Condition) {
+        //...    
+        // }
+        return false;
+    }
+
+    private boolean checkDiagonalDownLeftUpRight(int row, int col, Player player) {
+        // Vérifie si un mouvement diagonal de bas à gauche |vers| haut à droite encadre des pions adverses.
+
+        // if (Condition) {
+        //...    
+        // }
+        return false;
+    }
+
+    private boolean checkDiagonalDownRightUpLeft(int row, int col, Player player) {
+        // Vérifie si un mouvement diagonal de bas à droite |vers| haut à gauche encadre des pions adverses.
+
+        // if (Condition) {
+        //...    
+        // }
+        return false;
+    }
+    //-----------------------------------------------------------------------------------------------------------------------------------
+
+    //getter
     public int getBlackCount() {
         return countPawns("Noir");
     }
